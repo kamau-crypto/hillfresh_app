@@ -50,4 +50,24 @@
 ### Technical Improvements
 
 - Enhanced notification system for email communications
-- Updated documentation for all new workflows
+- Updated documentation for all new workflows.
+
+### Accounting Structure Enhancements
+
+**Shop-Specific Accounts**
+
+- Implemented individual Debtors (Accounts Receivable) accounts for each shop
+- Added Unrealized Profit/Revenue accounts linked to POS Profiles
+- Configured automatic account association with these workflows:
+  - Sales Invoice processing
+  - Inventory valuation adjustments
+  - Inter-shop transactions
+
+**POS Integration**
+
+- Established automatic mapping between:
+  - POS Profiles → Shop Debtors accounts
+  - POS Profiles → Unrealized Revenue accounts
+- Ensured proper accounting treatment for:
+  - Open invoices (unrealized)
+  - Settled invoices (realized)
