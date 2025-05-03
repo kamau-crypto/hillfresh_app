@@ -1,62 +1,53 @@
-# App Update Version 1.0.1 - Minor Fixes & Improvements
+# Changelog
 
-## Changelog
+## Version v1.0.3
 
-### Banking
+### New Features & Enhancements
 
-- [x] Pulled all payments against recent partly paid invoices to enable double banking of sales invoices.
-- [x] Identified reasons for banking failures:
-  - Mode of payment `Bank` not added successfully.
-  - Accounts must be company accounts linked to their Bank Account under Current Assets.
+**Sales Invoice**
 
-### Stock
+- Added Debtors (Accounts Receivable) account association for each user
+- Implemented unrealized profit/loss account for mobile app compliance (Frappe requirement)
 
-- [x] Fixed error when taking stock against Shop4/other shops.
-- [x] Rectified tank reading calculations.
-- [x] Corrected volume computation issues.
+**Stock Management**
 
-### Items
+- Programmatically configured waste limits per tank
+- Added user type display in mobile app dashboard after login
+- Fixed misleading production label caused by iOS build profile
+- Improved banking-related message clarity
+- Enhanced Stock Transfer docType with:
+  - Driver name field
+  - Vehicle license plate field
 
-- [x] Updated Purchase and Sales Items with correct Valuation Rates and images.
+**Banking Workflow**
 
-### Sales Invoices
+- Restructured banking flow to operate against cash accounts instead of invoices
+- Implemented dual banking workflows:
+  1. MPESA transactions
+  2. Shop Income account to organization Bank Account transfers
 
-- [x] Resolved Sales Invoice saving issues caused by:
-  - Meter reading `last_serviced` default value conflict.
-  - Date-time conflict in Meter reading records.
-  - **Fix:** Dropped the default value for the field.
+**Internal Procurement**
 
-### Purchases Page
+- Streamlined procurement workflow by removing Purchase Order requirement
+- Eliminated supplier selector
+- Implemented material transfer request initiation
+- Verified and updated affected accounting journals
 
-- [x] Prevented buttons from being hidden by the keyboard.
-- [x] Added purchases from each page.
-- [x] Investigated and fixed limited item visibility (only 3 items shown).
-- [x] Improved visibility distinction between Sales Bulk and Bottled Water items.
+**User Management**
 
-### Water Reading
+- Added password change functionality in User Preferences
+- Implemented password reset via email.
+- Improved forgot password flow with clear status messages:
+  - Success/failure notifications
+  - Email validation feedback
 
-- [x] Implemented auto-calculation of volume on the server.
-- [x] Made meter reading an optional field.
+### Fixes
 
-### Expense Page
+- Resolved banking testability issues
+- Fixed silent failures in password recovery flow
+- Corrected misleading fetch messages in banking module
 
-- [x] Added a list of expense accounts for banking.
-- [x] Included expense account in Shop POS-Profile.
-- [x] Added an Income Account.
-- [x] Fixed keyboard avoidance view in the expense page.
+### Technical Improvements
 
-### General Fixes
-
-- [x] Resolved warehouse display issues.
-- [x] Handled request timeouts when the server is unreachable.
-- [x] Configured 4% waste in sales (adjustable via POS Profile as operations improve).
-
-### User Session & Preferences
-
-- [x] Added persistent login (stays logged in until manual logout).
-- [x] Saved shop selection (e.g., Shop4 remains selected until changed).
-
----
-
-**Next Version (1.1.1)** will focus on major changes.  
-**Current Version (1.0.1)** addresses minor fixes and optimizations.
+- Enhanced notification system for email communications
+- Updated documentation for all new workflows
